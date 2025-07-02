@@ -1,11 +1,13 @@
 package br.com.baseerp.playgroundspringcore.hello.controller;
 
+import br.com.baseerp.playgroundspringcore.hello.domain.model.Person;
 import br.com.baseerp.playgroundspringcore.hello.service.GreetService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -27,6 +29,13 @@ public class HelloController {
             @RequestBody GreetRequest greetRequest
     ) {
         return ResponseEntity.ok(greetService.greet(greetRequest));
+    }
+
+    @GetMapping("/find")
+    public ResponseEntity<Person> getByCity(
+            @RequestParam(name = "city", required = true) String city
+    ) {
+        return ResponseEntity.ok(greetService.findByCity(city));
     }
 
 }

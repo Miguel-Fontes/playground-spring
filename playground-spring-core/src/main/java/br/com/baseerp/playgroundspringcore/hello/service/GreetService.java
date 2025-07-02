@@ -35,4 +35,8 @@ public class GreetService {
 
         return new HelloResponse("Hello %s!".formatted(person.getName()));
     }
+
+    public Person findByCity(String city) {
+        return personRepository.findByAddress_City(city);
+    }
 }
