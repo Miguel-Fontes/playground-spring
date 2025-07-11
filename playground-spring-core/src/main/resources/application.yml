@@ -18,3 +18,15 @@ spring:
     driver-class-name: org.h2.Driver
     username: sa
     password: password
+
+cloud:
+  aws:
+    region:
+      static: ${AWS_REGION}
+    credentials:
+      access-key: ${AWS_ACCESS_KEY_ID}
+      secret-key: ${AWS_SECRET_ACCESS_KEY}
+
+logging:
+  level:
+    root: debug
